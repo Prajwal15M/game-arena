@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAIBHAV 2K26 Esports Promo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #050505;
+            color: white;
+            font-family: 'Rajdhani', sans-serif;
+            overflow: auto;
+            margin: 0;
+        }
+
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+
+        /* Animated Background Gradients */
+        .bg-glow {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at center, rgba(147, 51, 234, 0.15) 0%, rgba(0, 0, 0, 1) 70%);
+            z-index: -1;
+        }
+
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 10;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(147, 51, 234, 0.2) 50%, rgba(0, 0, 0, 0) 100%);
+            opacity: 0.1;
+            position: absolute;
+            bottom: 100%;
+            animation: scanline 4s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { bottom: 100%; }
+            100% { bottom: -100px; }
+        }
+
+        /* Glitch Effect */
+        .glitch {
+            position: relative;
+            animation: glitch 1s linear infinite;
+        }
+
+        @keyframes glitch {
+            2%, 64% { transform: translate(2px, 0) skew(0deg); }
+            4%, 60% { transform: translate(-2px, 0) skew(0deg); }
+            62% { transform: translate(0, 0) skew(5deg); }
+        }
+
+        /* Animation States */
+        .scene {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            width: 100%;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(147, 51, 234, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .scanner-container {
+            border: 4px solid #9333ea;
+            position: relative;
+            padding: 10px;
+            background: white;
+            box-shadow: 0 0 30px rgba(147, 51, 234, 0.5);
+        }
+
+        .laser {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #9333ea;
+            box-shadow: 0 0 15px #9333ea;
+            animation: laserMove 2s ease-in-out infinite;
+        }
+
+        @keyframes laserMove {
+            0%, 100% { top: 0; }
+            50% { top: 100%; }
+        }
+
+        .cta-button {
+            background: linear-gradient(90deg, #9333ea, #db2777);
+            box-shadow: 0 0 20px rgba(147, 51, 234, 0.4);
+        }
+
+        /* MAIN CONTAINER */
+        .bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #1a0b2e 0%, #020205 100%);
+        }
+
+        /* 1. MOVING GRID FLOOR (Retro-wave style) */
+        .grid-bg {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            bottom: -50%;
+            left: -50%;
+            background-image: 
+                linear-gradient(rgba(147, 51, 234, 0.2) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(147, 51, 234, 0.2) 1px, transparent 1px);
+            background-size: 60px 60px;
+            transform: perspective(500px) rotateX(60deg);
+            animation: moveGrid 12s linear infinite;
+        }
+
+        @keyframes moveGrid {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 600px; }
+        }
+
+        /* 2. ANIMATED NEBULA CLOUDS (Organic glow) */
+        .nebula {
+            position: absolute;
+            width: 80vw;
+            height: 80vh;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.25;
+            animation: drift 25s infinite alternate ease-in-out;
+        }
+
+        .nebula-purple { 
+            background: #9333ea; 
+            top: -10%; 
+            left: -10%; 
+        }
+
+        .nebula-pink { 
+            background: #db2777; 
+            bottom: -10%; 
+            right: -10%; 
+            animation-delay: -7s; 
+        }
+
+        @keyframes drift {
+            from { transform: translate(0, 0) scale(1) rotate(0deg); }
+            to { transform: translate(150px, 80px) scale(1.3) rotate(15deg); }
+        }
+
+        /* 3. CRT SCANLINE EFFECT (High-tech overlay) */
+        .scanlines {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(
+                rgba(18, 16, 16, 0) 50%, 
+                rgba(0, 0, 0, 0.15) 50%
+            ), linear-gradient(
+                90deg, 
+                rgba(255, 0, 0, 0.02), 
+                rgba(0, 255, 0, 0.01), 
+                rgba(0, 0, 255, 0.02)
+            );
+            background-size: 100% 4px, 3px 100%;
+            z-index: 10;
+        }
+
+        /* GAME ZONE LOGO STYLES */
+        .shield-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -70px auto 30px auto;
+            z-index: 20;
+        }
+
+        .headphone-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .headphone-svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.8));
+        }
+
+        .shield-base {
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            background: linear-gradient(135deg, #a855f7, #3b0764);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            border: 4px solid #f5d0fe;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 50px rgba(168, 85, 247, 0.5);
+        }
+
+        .shield-inner {
+            width: 90%;
+            height: 90%;
+            background: #09090b;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #d8b4fe;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reticle {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 50%;
+        }
+
+        .reticle::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: -20px; right: -20px; height: 1px;
+            background: rgba(168, 85, 247, 0.3);
+        }
+
+        .reticle::after {
+            content: '';
+            position: absolute;
+            left: 50%; top: -20px; bottom: -20px; width: 1px;
+            background: rgba(168, 85, 247, 0.3);
+        }
+
+        .game-icon-box {
+            position: relative;
+            z-index: 5;
+            filter: drop-shadow(0 0 15px #a855f7);
+        }
+
+        .brand-banner {
+            background: linear-gradient(to right, transparent, #3b0764, #a855f7, #3b0764, transparent);
+            width: 110%;
+            padding: 6px 0;
+            position: absolute;
+            bottom: -40px;
+            transform: skewX(-15deg);
+            border-top: 2px solid #f5d0fe;
+            border-bottom: 2px solid #f5d0fe;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+
+        .main-text {
+            font-size: 1rem;
+            color: white;
+            font-weight: 900;
+            margin: 0;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 0px #000;
+            transform: skewX(15deg);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .year-text {
+            font-size: 0.8rem;
+            color: #f5d0fe;
+            margin: 0;
+            transform: skewX(15deg);
+            letter-spacing: 4px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(1deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-container">
+        <!-- The Scrolling Floor -->
+        <div class="grid-bg"></div>
+        
+        <!-- The Atmospheric Glows -->
+        <div class="nebula nebula-purple"></div>
+        <div class="nebula nebula-pink"></div>
+        
+        <!-- The Screen Filter -->
+        <div class="scanlines"></div>
+    </div>
+
+    <div class="bg-glow"></div>
+    <div class="scanline"></div>
+
+    <!-- Scene 1: Introduction -->
+    <section id="scene-intro" class="scene">
+        <!-- Game Zone Logo -->
+        <div class="shield-container">
+            <!-- Headphone Graphic Overlay -->
+            <div class="headphone-overlay">
+                <svg class="headphone-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M80 200C80 133.726 133.726 80 200 80C266.274 80 320 133.726 320 200" stroke="#f5d0fe" stroke-width="12" stroke-linecap="round"/>
+                    <rect x="50" y="180" width="40" height="100" rx="10" fill="#3b0764" stroke="#f5d0fe" stroke-width="4"/>
+                    <rect x="310" y="180" width="40" height="100" rx="10" fill="#3b0764" stroke="#f5d0fe" stroke-width="4"/>
+                </svg>
+            </div>
+
+            <!-- Shield Logo -->
+            <div class="shield-base">
+                <div class="shield-inner">
+                    <div class="reticle"></div>
+                    <!-- Game Controller Icon -->
+                    <div class="game-icon-box">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 12H8M7 11V13M15 12H15.01M17 10H17.01M19 12H19.01M17 14H17.01M12 4C12 4 11 4 9 4C4 4 2 8 2 13C2 17 4 20 6 20C7 20 8 19 9 18C10 17 11 17 12 17C13 17 14 17 15 18C16 19 17 20 18 20C20 20 22 17 22 13C22 8 20 4 15 4C13 4 12 4 12 4Z" stroke="#d8b4fe" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Banner -->
+            <div class="brand-banner">
+                <h1 class="main-text">GAME ZONE</h1>
+                <h2 class="year-text">2K26</h2>
+            </div>
+        </div>
+
+        <div class="mb-4 text-purple-500 font-bold tracking-widest uppercase text-xl orbitron"></div>
+        <h1 class="text-7xl md:text-9xl font-black orbitron glitch text-transparent bg-clip-text bg-gradient-to-b from-white to-purple-400">
+            VAIBHAV <br> 2K26
+        </h1>
+        <div class="mt-8 px-6 py-2 border-y border-purple-500/50 text-2xl tracking-[0.5em] text-purple-200">
+            ESPORTS TOURNAMENT 
+        </div>
+        <div class="mt-8 px-6 py-2 border-y border-purple-500/50 text-2xl tracking-[0.5em] text-purple-200">
+            Organized by Dept. of CSE, JCET 
+        </div>
+    </section>
+
+    <!-- Scene 2: Games -->
+    <section id="scene-games" class="scene">
+        <h2 class="text-4xl md:text-6xl orbitron font-bold mb-12 text-white">CHOOSE YOUR BATTLE</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
+            <div class="stat-card p-8 group overflow-hidden relative">
+                <div class="absolute inset-0 bg-yellow-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <h3 class="text-3xl font-bold mb-2 orbitron text-yellow-500">BGMI</h3>
+                <p class="text-gray-400 uppercase tracking-widest">Battlegrounds Mobile India</p>
+            </div>
+            <div class="stat-card p-8 group overflow-hidden relative">
+                <div class="absolute inset-0 bg-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <h3 class="text-3xl font-bold mb-2 orbitron text-red-500">FREE FIRE</h3>
+                <p class="text-gray-400 uppercase tracking-widest">Survival Shooter</p>
+            </div>
+        </div>
+        <div class="mt-12 text-2xl italic orbitron text-purple-400">"PLAN THE GAME • KILL TO WIN • STEAL THE WIN"</div>
+    </section>
+
+    <!-- Scene 3: Details -->
+    <section id="scene-details" class="scene">
+        <h2 class="text-4xl md:text-5xl orbitron font-bold mb-10">EVENT INTEL</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl">
+            <div class="stat-card p-6">
+                <div class="text-purple-500 mb-2 uppercase text-sm font-bold">Registration</div>
+                <div class="text-2xl font-bold orbitron mb-4">OPEN NOW</div>
+                <a href="https://forms.gle/bR17afkwmkGz1cHL7" target="_blank" class="inline-block px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded text-white text-sm font-bold transition-colors">
+                    Register Here
+                </a>
+            </div>
+            <div class="stat-card p-6">
+                <div class="text-purple-500 mb-2 uppercase text-sm font-bold">Date</div>
+                <div class="text-2xl font-bold orbitron">MARCH 26 & 27</div>
+                <div class="text-sm text-gray-400">(TWO DAYS)</div>
+            </div>
+            <div class="stat-card p-6 border-pink-500/30">
+                <div class="text-pink-500 mb-2 uppercase text-sm font-bold">Prize Pool</div>
+                <div class="text-2xl font-bold orbitron">WIN BIG</div>
+            </div>
+        </div>
+        <div class="mt-10 flex flex-col md:flex-row gap-10 items-center justify-center">
+            <div class="text-left">
+                <div class="text-gray-500 uppercase text-xs mb-1">Inhouse</div>
+                <div class="text-4xl font-bold orbitron">₹200/- per Team</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scene 3.5: Event Rules -->
+    <section id="scene-rules" class="scene">
+        <h2 class="text-4xl md:text-5xl orbitron font-bold mb-10">EVENT RULES</h2>
+        <div class="stat-card p-8 w-full max-w-2xl">
+            <p class="text-xl text-purple-300 mb-6">For complete event rules and details, visit:</p>
+            <a href="https://gamezone-81309a.tiiny.site" target="_blank" class="text-2xl font-bold orbitron text-purple-400 hover:text-purple-300 transition-colors">
+                gamezone-81309a.tiiny.site
+            </a>
+        </div>
+    </section>
+
+    <!-- Scene 4: Registration -->
+    <section id="scene-scanner" class="scene">
+        <h2 class="text-4xl md:text-5xl orbitron font-bold mb-10">REGISTER NOW</h2>
+        <div class="stat-card p-8 w-full max-w-2xl">
+            <p class="text-xl text-purple-300 mb-6">Click the link below to register for the event:</p>
+            <a href="https://forms.gle/bR17afkwmkGz1cHL7" target="_blank" class="inline-block px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg text-white text-lg font-bold transition-colors">
+                https://forms.gle/bR17afkwmkGz1cHL7
+            </a>
+        </div>
+
+        <div class="space-y-4 mt-12">
+            <p class="text-xl orbitron text-purple-300">CONTACT US</p>
+            <div class="flex flex-col items-center gap-4">
+                <div>
+                    <span class="text-gray-400 uppercase text-xs">Faculty Coordinators</span>
+                    <div class="flex flex-col items-center gap-2">
+                        <span class="text-xl font-bold text-white">Prof. Rakesh A</span>
+                        <span class="text-xl font-bold text-white">Prof. Archana M</span>
+                    </div>
+                </div>
+                <div>
+                    <span class="text-gray-400 uppercase text-xs block mb-3">Student Coordinators</span>
+                    <div class="flex flex-col items-center gap-6">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex flex-col items-center">
+                                <span class="text-lg font-bold text-white">Tejasvi V D</span>
+                                <span class="text-sm font-mono text-purple-400">7338615066</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <span class="text-lg font-bold text-white">Prajwal M</span>
+                                <span class="text-sm font-mono text-purple-400">9632640173</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-3 md:grid-cols-5 gap-4">
+                            <div class="flex flex-col items-center">
+                                <span class="text-lg font-bold text-white">Shreyas N</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <span class="text-lg font-bold text-white">Suhas S</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <span class="text-lg font-bold text-white">Sujal V</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <span class="text-lg font-bold text-white">Vanishree J</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <span class="text-lg font-bold text-white">Dhanyashree P</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
