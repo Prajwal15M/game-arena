@@ -66,7 +66,13 @@
             min-height: auto;
             width: 100%;
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 2rem 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .scene {
+                padding: 4rem 2rem;
+            }
         }
 
         .stat-card {
@@ -188,13 +194,21 @@
         /* GAME ZONE LOGO STYLES */
         .shield-container {
             position: relative;
-            width: 200px;
-            height: 200px;
+            width: 140px;
+            height: 140px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: -70px auto 30px auto;
+            margin: -50px auto 20px auto;
             z-index: 20;
+        }
+
+        @media (min-width: 768px) {
+            .shield-container {
+                width: 200px;
+                height: 200px;
+                margin: -70px auto 30px auto;
+            }
         }
 
         .headphone-overlay {
@@ -270,9 +284,9 @@
         .brand-banner {
             background: linear-gradient(to right, transparent, #3b0764, #a855f7, #3b0764, transparent);
             width: 110%;
-            padding: 6px 0;
+            padding: 4px 0;
             position: absolute;
-            bottom: -40px;
+            bottom: -25px;
             transform: skewX(-15deg);
             border-top: 2px solid #f5d0fe;
             border-bottom: 2px solid #f5d0fe;
@@ -283,8 +297,15 @@
             z-index: 10;
         }
 
+        @media (min-width: 768px) {
+            .brand-banner {
+                padding: 6px 0;
+                bottom: -40px;
+            }
+        }
+
         .main-text {
-            font-size: 1rem;
+            font-size: 0.75rem;
             color: white;
             font-weight: 900;
             margin: 0;
@@ -294,18 +315,62 @@
             font-family: 'Orbitron', sans-serif;
         }
 
+        @media (min-width: 768px) {
+            .main-text {
+                font-size: 1rem;
+            }
+        }
+
         .year-text {
-            font-size: 0.8rem;
+            font-size: 0.65rem;
             color: #f5d0fe;
             margin: 0;
             transform: skewX(15deg);
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             font-family: 'Orbitron', sans-serif;
+        }
+
+        @media (min-width: 768px) {
+            .year-text {
+                font-size: 0.8rem;
+                letter-spacing: 4px;
+            }
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-15px) rotate(1deg); }
+        }
+
+        /* Mobile optimization */
+        @media (max-width: 640px) {
+            h1.glitch {
+                font-size: 2.5rem !important;
+            }
+
+            h2 {
+                font-size: 1.875rem !important;
+            }
+
+            .text-2xl {
+                font-size: 1.25rem !important;
+            }
+
+            .text-xl {
+                font-size: 1.125rem !important;
+            }
+
+            .grid-cols-3, .grid-cols-5 {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+
+            a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.95rem;
+            }
         }
     </style>
 </head>
