@@ -342,8 +342,59 @@
             50% { transform: translateY(-15px) rotate(1deg); }
         }
 
-        /* Mobile optimization */
+        /* WhatsApp Button Styling */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 12px 18px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 999;
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.08) translateY(-5px);
+            box-shadow: 0 0 40px rgba(37, 211, 102, 0.7), 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .whatsapp-button:active {
+            transform: scale(0.95);
+        }
+
+        .whatsapp-button svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+            flex-shrink: 0;
+        }
+
         @media (max-width: 640px) {
+            .whatsapp-button {
+                width: 55px;
+                height: 55px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-button svg {
+                width: 30px;
+                height: 30px;
+            }
+
             h1.glitch {
                 font-size: 2.5rem !important;
             }
@@ -509,7 +560,7 @@
                 <div>
                     <span class="text-gray-400 uppercase text-xs">Faculty Coordinators</span>
                     <div class="flex flex-col items-center gap-2">
-                        <span class="text-xl font-bold text-white">Prof. Raghunath Singh Rajput</span>
+                        <span class="text-xl font-bold text-white">Prof. Raghunath Singh Rajputh</span>
                         <span class="text-xl font-bold text-white">Prof. Rakesh A</span>
                         <span class="text-xl font-bold text-white">Prof. Archana M</span>
                         
@@ -550,6 +601,15 @@
             </div>
         </div>
     </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://chat.whatsapp.com/I9HMHT9Q4fPGXpUCmJhOPU" target="_blank" class="whatsapp-button" title="Join our WhatsApp group">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.15-1.739-.86-2.01-.96-.27-.11-.47-.15-.67.15-.21.29-.81.96-.99 1.16-.19.21-.37.23-.67.07-.3-.16-1.264-.465-2.41-1.48-.89-.79-1.49-1.77-1.67-2.07-.18-.3-.02-.46.14-.61.144-.15.27-.39.405-.58-.135-.19-.27-.39-.405-.58-.135-.19-.27-.39-.405-.58-.135-.19-.19-.3-.305-.49-.115-.19-.06-.35.03-.46.09-.11.27-.285.405-.42.135-.135.27-.27.405-.405.135-.135.15-.27.225-.405.075-.135.04-.27-.015-.405-.055-.135-.27-.67-.405-1.005-.135-.335-.27-.335-.405-.34-.135-.005-.27 0-.405 0-.135 0-.36.06-.54.285-.18.225-1.02 1.01-1.02 2.11s.93 2.45 1.055 2.63c.125.18 1.77 2.715 4.285 3.8 1.425.635 2.475.885 3.32 1.07.42.1 1.265.035 1.755-.1.53-.155 1.63-.665 1.85-1.31.22-.645.22-1.2.155-1.31-.065-.11-.27-.165-.565-.28z"/>
+            <path d="M19.665 3.717c-2.203-2.202-5.75-2.202-7.953 0-2.202 2.203-2.202 5.75 0 7.952 2.203 2.203 5.75 2.203 7.953 0 2.202-2.202 2.202-5.749 0-7.952zm-1.414 6.538c-1.562 1.562-4.095 1.562-5.657 0-1.562-1.562-1.562-4.095 0-5.657 1.562-1.562 4.095-1.562 5.657 0 1.562 1.562 1.562 4.095 0 5.657z"/>
+        </svg>
+        <span>JOIN WHATSAPP GROUP</span>
+    </a>
 
 </body>
 </html>
